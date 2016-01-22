@@ -44,10 +44,20 @@ var config = {
 Open with google chrome your Foolie (i.e. http://localhost/foolie).
 Edit again js/config.js to add funny comments or to change rss feed url or lang, etc.
 
-## Thanks to Favella!
+## Thanks to 
+
+### Favella!
 
 Do you know Favella (https://github.com/batopa/favella)?
 Favella is a cool javascript library that provides a text-to-speech service; it's developed by https://github.com/batopa.
 
 Have fun with Favella!
 Thanks to Favella and to batopa.
+
+### jquery
+
+Foolie uses JQuery 1.11.3 (https://jquery.com/).
+
+### googleapis
+
+Foolie uses googleapis services to obtain feed data (https://developers.google.com/speed/libraries/).
