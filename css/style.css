@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+div#speaker {
+    width:300px;
+    height:230px;
+    background-image: url("../media/speaker.jpg");
+    float:left;
+}
+div#speakerBubble {
+    left: -100px;
+    width:1000px;
+    height:150px;
+}
+div#comment {
+    top: 0px;
+    width:200px;
+    height:150px;
+    float:right;
+}
+div#commentBubble {
+    right:-100px;
+    width:1000px;
+    height:150px;
+}
+.speech-bubble {
+    position: relative;
+    background-color: #000;
+    line-height: 150px; 
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    font-family: sans-serif;
+    margin: 2em auto;
+}
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 15px solid;
+}
+.speech-bubble-top:after {
+    border-bottom-color: #000;
+    left: 50%;
+    bottom: 100%;
+    margin-left: -15px;
+}
+.speech-bubble-right:after {
+    border-left-color: #000;
+    left: 100%;
+    top: 50%;
+    margin-top: -15px;
+}
+.speech-bubble-bottom:after {
+    border-top-color: #000;
+    top: 100%;
+    left: 50%;
+    margin-left: -15px;
+}
+.speech-bubble-left:after {
+    border-right-color: #000;
+    top: 50%;
+    right: 100%;
+    margin-top: -15px;
+}
