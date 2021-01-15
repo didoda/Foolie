@@ -1,10 +1,12 @@
 let commentSetup;
+let commentsIndexBuffer;
 
 function rss(_url) {
     $.ajax({
         url: 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(_url),
         dataType: 'json',
         success: function (data) {
+            commentsIndexBuffer = [];
             if (data.feed && data.items) {
                 let i = Math.floor(Math.random() * data.items.length);
                 readAndWrite(data.items[i]);
@@ -13,19 +15,23 @@ function rss(_url) {
     });
 }
 
-function randomComment(previousComments) {
-    let comments = config.comments;
-    let k = 0;
-    for (let i = 0; i < config.comments.length; i++) {
-        if (jQuery.inArray(i, previousComments)) {
-            continue;
-        }
-        comments[k++] = config.comments[i];
+function randomComments() {
+    let comments = [];
+    for (let i=0; i<config.maxComments; i++) {
+        let comment;
+        let k = 0;
+        do {
+            comment = config.comments[Math.floor(Math.random() * config.comments.length)];
+            condition = jQuery.inArray(comment, comments) >= 0;
+            k++;
+            if (k > 10) {
+                condition = false;
+            }
+        } while (condition);
+        comments[i] = comment;
     }
-    let n = Math.floor(Math.random() * comments.length);
-    previousComments.push(n);
 
-    return comments[n];
+    return comments;
 }
 
 function randomSetup() {
@@ -49,16 +55,12 @@ function readAndWrite(feed) {
             $('#speaker').html(`<h1>${feed.title}</h1><section>${feed.content}</section><hr/>`);
         }
     });
-    Favella.speak(feed.content);
-    Favella.setup(commentSetup);
-    let numComments = config.maxComments;
-    let comments = [];
-    for (let i=0; i<numComments; i++) {
+    const comments = randomComments();
+    for (let i=0; i<comments.length; i++) {
         Favella.setup(randomSetup());
-        let comment = randomComment(comments);
-        Favella.speak(comment,{
+        Favella.speak(comments[i],{
             onstart: function(e) {
-                $('#speaker').append(`&nbsp;<b style="color: ${config.colors[i]}">${comment}</b>`);
+                $('#speaker').append(`&nbsp;<b style="color: ${config.colors[i]}">${comments[i]}</b>`);
             }
         });
     }
