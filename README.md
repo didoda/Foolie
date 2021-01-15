@@ -58,6 +58,6 @@ Thanks to Favella and to batopa.
 
 Foolie uses JQuery 1.11.3 (https://jquery.com/).
 
-### googleapis
+### rss2json
 
-Foolie uses googleapis services to obtain feed data (https://developers.google.com/speed/libraries/).
+Foolie uses rss2json api to obtain feed data (https://rss2json.com/).

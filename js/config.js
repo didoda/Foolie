@@ -1,5 +1,5 @@
 var config = {
-    rssUrl: 'http://www.newyorker.com/feed/news',
+    rssUrl: 'https://www.newyorker.com/feed/news',
     lang: 'en-GB',
     comments: [
         'Really?',
@@ -11,6 +11,11 @@ var config = {
         'Oh yeah',
         'Remarkable',
         'Are you serious or what?'
+    ],
+    colors: [
+        'blue',
+        'green',
+        'red',
     ],
     maxComments: 3,
     speakerSetup: {

@@ -1,40 +1,36 @@
-var commentSetup;
+let commentSetup;
 
 function rss(_url) {
     $.ajax({
-        url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(_url),
+        url: 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(_url),
         dataType: 'json',
         success: function (data) {
-            if (data.responseData.feed && data.responseData.feed.entries) {
-                readAndWrite(data.responseData.feed.entries[0]);
+            if (data.feed && data.items) {
+                let i = Math.floor(Math.random() * data.items.length);
+                readAndWrite(data.items[i]);
             }
         }
     });
 }
 
-function inArray(needle, haystack) {
-    var length = haystack.length;
-    for(var i = 0; i < length; i++) {
-        if(haystack[i] == needle) return true;
-    }
-    return false;
-}
-
 function randomComment(previousComments) {
-    var comments = config.comments;
-    var randomCommentNumber = Math.floor(Math.random() * comments.length);
-    result = comments[randomCommentNumber];
-    if (inArray(randomCommentNumber, previousComments)) {
-        result = randomComment(previousComments);
-    } else {
-        previousComments.push(randomCommentNumber);
+    let comments = config.comments;
+    let k = 0;
+    for (let i = 0; i < config.comments.length; i++) {
+        if (jQuery.inArray(i, previousComments)) {
+            continue;
+        }
+        comments[k++] = config.comments[i];
     }
-    return result;
+    let n = Math.floor(Math.random() * comments.length);
+    previousComments.push(n);
+
+    return comments[n];
 }
 
 function randomSetup() {
-    var randomRate = (1 + Math.floor(Math.random() * 50) / 100).toFixed(2); // 0.1 to 2
-    var randomPitch = (Math.floor(Math.random() * 20) / 10).toFixed(2); // 0 to 2
+    let randomRate = (1 + Math.floor(Math.random() * 50) / 100).toFixed(2); // 0.1 to 2
+    let randomPitch = (Math.floor(Math.random() * 20) / 10).toFixed(2); // 0 to 2
     return {
         parentalControl: false,
         speakOptions: {
@@ -50,28 +46,28 @@ function readAndWrite(feed) {
     Favella.setup(config.speakerSetup);
     Favella.speak(feed.title,{
         onstart: function(e) {
-            $('#speakerBubble').html(feed.title + ': ' + feed.contentSnippet);
+            $('#speaker').html(`<h1>${feed.title}</h1><section>${feed.content}</section><hr/>`);
         }
     });
-    Favella.speak(feed.contentSnippet);
+    Favella.speak(feed.content);
     Favella.setup(commentSetup);
-    var numComments = config.maxComments;
-    var comments = [];
-    for (var i=0; i<numComments; i++) {
+    let numComments = config.maxComments;
+    let comments = [];
+    for (let i=0; i<numComments; i++) {
         Favella.setup(randomSetup());
-        comment = randomComment(comments);
+        let comment = randomComment(comments);
         Favella.speak(comment,{
             onstart: function(e) {
-                $('#commentBubble').html($('#commentBubble').html() + "<br/>" + comment);
+                $('#speaker').append(`&nbsp;<b style="color: ${config.colors[i]}">${comment}</b>`);
             }
         });
     }
 }
 
-$( document ).ready(function() {
-    commentSetup = randomSetup();
-    Favella.setup(config.speakerSetup);
-    setTimeout(function() { // some seconds for speak
+$(document).ready(() => {
+    $('#readRss').click(() => {
+        commentSetup = randomSetup();
+        Favella.setup(config.speakerSetup);
         rss(config.rssUrl);
-    }, 5000);
+    });
 });
