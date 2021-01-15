@@ -56,7 +56,7 @@ Thanks to Favella and to batopa.
 
 ### jquery
 
-Foolie uses JQuery 1.11.3 (https://jquery.com/).
+Foolie uses JQuery 3.5.1 (https://jquery.com/).
 
 ### rss2json
 
