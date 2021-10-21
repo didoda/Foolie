@@ -8,8 +8,8 @@
 **Foolie** reads your rss feeds using **api.rss2json.com** and **Favella** (https://github.com/batopa/favella).
 
 ## Install
-If you clone this repo, launch `yarn && yarn dev` for development.
-`yarn build` will update `public` folder. You have to manually update `public/index.html` if you do a new build.
+Clone this repo, launch `yarn && yarn dev` for development.
+Launch `yarn build` to update `public` folder (you have to manually update `public/index.html` in this case).
 
 ## Thanks to 
 
@@ -25,6 +25,6 @@ Thanks to Favella and to batopa.
 
 Foolie uses rss2json api to obtain feed data (https://rss2json.com/).
 
-# Vue 3 + Vite
+### Vue 3 + Vite
 
 Foolie is a component developed with [Vue 3](https://v3.vuejs.org/) in [Vite](https://vitejs.dev/).
