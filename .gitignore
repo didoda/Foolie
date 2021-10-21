@@ -1,2 +1,10 @@
-.project
-js/config.js
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.vscode
+public/assets/*.css
+public/assets/*.js
+public/index.html
+public/manifest.json
