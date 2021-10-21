@@ -117,8 +117,8 @@ function display(id, toggle) {
     <select id="lang" v-model="lang">
       <option value="en-GB">British English</option>
       <option value="en-US">US English</option>
-      <option value="pt-BR">Portugues do Brazil</option>
-      <option value="es-ES">Espanol</option>
+      <option value="pt-BR">Português do Brazil</option>
+      <option value="es-ES">Español</option>
       <option value="it-IT">Italiano</option>
     </select>
 
