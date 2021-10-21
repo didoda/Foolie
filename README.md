@@ -1,8 +1,9 @@
 # Foolie
 
-![image]({https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E}), 
-![image]({https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D})
-![image]({https://img.shields.io/badge/Favella-38B2AC?style=for-the-badge&logo=favella&logoColor=white})
+![image](https://img.shields.io/badge/Favella-38B2AC?style=for-the-badge&logo=favella&logoColor=white)
+![image](https://img.shields.io/badge/Rsstojson-B2AC38?style=for-the-badge&logo=rss2json&logoColor=white)
+![image](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![image](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
 
 **Foolie** reads your rss feeds using **api.rss2json.com** and **Favella** (https://github.com/batopa/favella).
 
