@@ -1,0 +1,26 @@
+input[type=text], select {
+    margin: 7px 7px 7px 7px;
+    padding: 7px 7px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+button {
+    margin: 8px 8px 8px 8px;
+    padding: 7px 7px;
+    margin: 8px 4px;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-weight: bold;
+}
+div#text {
+    padding: 10px 20px;
+    margin: 50px;
+    box-sizing: border-box;
+}
+.hidden {
+    display: none;
+}
