@@ -11,6 +11,10 @@
 Clone this repo, launch `yarn && yarn dev` for development.
 Launch `yarn build` to update `public` folder (you have to manually update `public/index.html` in this case).
 
+## Demo
+
+A demo available on github pages: https://didoda.github.io/Foolie/
+
 ## Thanks to 
 
 ### Favella!
